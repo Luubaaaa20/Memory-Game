@@ -1,25 +1,25 @@
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links a');
-const ctaButton = document.querySelector('.cta-button');
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
+const hamburger = document.querySelector('.navbar__hamburger');
+const navMenu = document.querySelector('.navbar__links');
+const navLinks = document.querySelectorAll('.navbar__link');
+const ctaButton = document.querySelector('.hero__button');
+const slides = document.querySelectorAll('.slider__slide');
+const dots = document.querySelectorAll('.slider__dot');
+const prevBtn = document.querySelector('.slider__prev');
+const nextBtn = document.querySelector('.slider__next');
 const slider = document.querySelector('.slider');
-const slidesContainer = document.querySelector('.slides');
+const slidesContainer = document.querySelector('.slider__slides');
 let currentSlide = 0;
 let autoSlideInterval;
 
 hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+    navMenu.classList.toggle('navbar__links--active');
 });
 
 function showSlide(index) {
-    currentSlide = (index + slides.length) % slides.length; // Уникаємо негативних індексів
+    currentSlide = (index + slides.length) % slides.length;
     slidesContainer.style.transform = `translateX(-${currentSlide * 100 / slides.length}%)`;
-    slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+    slides.forEach((slide, i) => slide.classList.toggle('slider__slide--active', i === currentSlide));
+    dots.forEach((dot, i) => dot.classList.toggle('slider__dot--active', i === currentSlide));
 }
 
 function nextSlide() {
@@ -31,8 +31,8 @@ function prevSlide() {
 }
 
 function startAutoSlide() {
-    stopAutoSlide(); // Очищаємо попередній інтервал
-    autoSlideInterval = setInterval(nextSlide, 4000); // Зміна кожні 4 секунди
+    stopAutoSlide();
+    autoSlideInterval = setInterval(nextSlide, 4000);
 }
 
 function stopAutoSlide() {
@@ -44,10 +44,10 @@ function stopAutoSlide() {
 
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        if (!link.href.includes('memory-game')) {
+        if (!link.href.includes('index.html')) {
             e.preventDefault();
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+            navLinks.forEach(l => l.classList.remove('navbar__link--active'));
+            link.classList.add('navbar__link--active');
             console.log(`Перехід до: ${link.textContent}`);
         }
     });
@@ -66,19 +66,19 @@ dots.forEach((dot, i) => {
 prevBtn.addEventListener('click', () => {
     prevSlide();
     stopAutoSlide();
-    startAutoSlide(); // Перезапуск після ручної зміни
+    startAutoSlide();
 });
 
 nextBtn.addEventListener('click', () => {
     nextSlide();
     stopAutoSlide();
-    startAutoSlide(); // Перезапуск після ручної зміни
+    startAutoSlide();
 });
 
 slider.addEventListener('mouseenter', stopAutoSlide);
 slider.addEventListener('mouseleave', startAutoSlide);
 
-document.querySelectorAll('.slide-button').forEach(btn => {
+document.querySelectorAll('.slider__button').forEach(btn => {
     btn.addEventListener('click', () => alert('Перейдіть до каталогу для деталей!'));
 });
 
