@@ -8,93 +8,173 @@
 body {
     background-color: #121212;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     min-height: 100vh;
     padding: 20px;
 }
 
-.container {
-    width: 100%;
-    max-width: 1000px;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #00ffcc;
-}
-
-.controls {
-    margin: 20px 0;
+.navbar {
+    background-color: #1e1e1e;
+    padding: 15px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
     flex-wrap: wrap;
+    border-bottom: 2px solid #00ffcc;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.controls select,
-.controls button {
-    font-size: 0.8rem;
-    padding: 10px;
+.brand {
+    font-size: 1.5rem;
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #00ffcc;
+    transform: scale(1.1);
+}
+
+.nav-links li a.active {
+    color: #00ffcc;
+    border-bottom: 2px solid #00ffcc;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #00ffcc;
+    cursor: pointer;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: url('images/boardgame-pattern.jpg') center/cover no-repeat;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1000px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    color: #00ffcc;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+.hero p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 0.9rem;
     background-color: #1e1e1e;
     border: 2px solid #00ffcc;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-#timer {
-    font-size: 0.9rem;
-    margin-left: 10px;
-    color: #ff4081;
-}
-
-.game-board {
-    display: grid;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.card {
-    width: 80px;
-    height: 80px;
-    background-color: #333;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.card.revealed {
+.cta-button:hover {
     background-color: #00ffcc;
     color: #000;
+    transform: scale(1.1);
 }
 
-.card.matched {
-    background-color: #4caf50;
-    color: #000;
-    cursor: default;
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-footer {
-    margin-top: 30px;
-    font-size: 0.7rem;
-    color: #888;
+.modal-content {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
 }
 
-@media (max-width: 768px) {
-    .card {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #00ffcc;
+    cursor: pointer;
+}
+
+/* Адаптивність */
+@media (max-width: 576px) {
+    .navbar { flex-direction: column; align-items: flex-start; }
+    .brand { font-size: 1.2rem; }
+    .nav-links { display: none; flex-direction: column; width: 100%; gap: 10px; }
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; }
+    .hero { padding: 30px 10px; }
+    .hero h1 { font-size: 1.3rem; }
+    .hero p { font-size: 0.7rem; }
+    .cta-button { padding: 10px 20px; font-size: 0.7rem; }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .brand { font-size: 1.3rem; }
+    .nav-links { gap: 15px; }
+    .nav-links li a { font-size: 0.8rem; }
+    .hero h1 { font-size: 1.5rem; }
+    .hero p { font-size: 0.8rem; }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .nav-links li a { font-size: 0.85rem; }
+    .hero h1 { font-size: 1.6rem; }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .hero h1 { font-size: 1.7rem; }
+}
+
+@media (min-width: 1200px) {
+    .brand { font-size: 1.5rem; }
+    .nav-links li a { font-size: 0.9rem; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 0.9rem; }
 }
