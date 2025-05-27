@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GameBox Memory Game</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBox: Memory Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🧠 Memory Game</h1>
-    </header>
-    <div class="controls">
-      <select id="difficulty">
-        <option value="easy">Легко (2x3)</option>
-        <option value="medium">Середньо (3x4)</option>
-        <option value="hard">Важко (4x6)</option>
-      </select>
-      <button id="startBtn">Старт</button>
-      <span id="timer">00:00</span>
-      <span id="moves">Ходи: 0</span>
+    <div class="container">
+        <header>
+            <h1>🎮 GameBox Memory Game</h1>
+            <p>Знайди всі пари карток!</p>
+        </header>
+
+        <section class="controls">
+            <label for="difficulty">Рівень складності:</label>
+            <select id="difficulty">
+                <option value="easy">Легкий (3x2)</option>
+                <option value="medium">Середній (4x3)</option>
+                <option value="hard">Складний (6x4)</option>
+            </select>
+            <button id="startBtn">Почати гру</button>
+            <span id="timer">00:00</span>
+        </section>
+
+        <section id="gameBoard" class="game-board"></section>
+
+        <footer>
+            <p>© 2025 GameBox Team. Усі права захищено.</p>
+        </footer>
     </div>
-    <div id="gameBoard" class="game-board"></div>
-    <footer>
-      <p>© 2025 GameBox. Усі права захищені.</p>
-    </footer>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
