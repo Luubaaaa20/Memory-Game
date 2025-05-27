@@ -2,6 +2,9 @@ const board = document.getElementById('gameBoard');
 const startBtn = document.getElementById('startBtn');
 const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('score');
+const instructionsLink = document.getElementById('instructionsLink');
+const instructionsDropdown = document.getElementById('instructionsDropdown');
+const closeInstructions = document.getElementById('closeInstructions');
 
 let currentLevel = 1;
 let timeLeft;
@@ -10,14 +13,15 @@ let firstCard = null;
 let lockBoard = false;
 let score = 0;
 
+// Звуки (локальні файли)
 const flipSound = new Audio('sounds/560043__andrussy44__book_flip1.wav'); // Переворот картки
 const matchSound = new Audio('sounds/386200__ldezem__match-lighting-short.wav'); // Збіг пари
 const levelSound = new Audio('sounds/787559__interstellarcat__video-game-level-complete-sound-effect.wav'); // Завершення рівня
 
 const levels = {
-    1: { rows: 2, cols: 3, time: 10 }, 
-    2: { rows: 3, cols: 4, time: 20 }, 
-    3: { rows: 4, cols: 6, time: 90 }  
+    1: { rows: 2, cols: 3, time: 10 }, // 10 секунд
+    2: { rows: 3, cols: 4, time: 20 }, // 20 секунд
+    3: { rows: 4, cols: 6, time: 90 }  // 1 хвилина 30 секунд
 };
 
 async function loadCards() {
@@ -37,6 +41,15 @@ startBtn.addEventListener('click', () => {
     resetGame();
     setupGame();
     startTimer();
+});
+
+instructionsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    instructionsDropdown.classList.toggle('game-box__dropdown--visible');
+});
+
+closeInstructions.addEventListener('click', () => {
+    instructionsDropdown.classList.remove('game-box__dropdown--visible');
 });
 
 function startTimer() {
