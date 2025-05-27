@@ -15,6 +15,33 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
+function showSlide(index) {
+    currentSlide = (index + slides.length) % slides.length; // Уникаємо негативних індексів
+    slidesContainer.style.transform = `translateX(-${currentSlide * 100 / slides.length}%)`;
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+function startAutoSlide() {
+    stopAutoSlide(); // Очищаємо попередній інтервал
+    autoSlideInterval = setInterval(nextSlide, 4000); // Зміна кожні 4 секунди
+}
+
+function stopAutoSlide() {
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+    }
+}
+
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         if (!link.href.includes('memory-game')) {
@@ -30,43 +57,23 @@ ctaButton.addEventListener('click', () => {
     alert('Ознайомтесь із каталогом GameBox!');
 });
 
-function showSlide(index) {
-    slidesContainer.style.transform = `translateX(-${index * 100 / slides.length}%)`;
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-}
-
 dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-        currentSlide = i;
-        showSlide(currentSlide);
+        showSlide(i);
     });
 });
 
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', () => {
+    prevSlide();
+    stopAutoSlide();
+    startAutoSlide(); // Перезапуск після ручної зміни
+});
 
-function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 5000);
-}
-
-function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-}
+nextBtn.addEventListener('click', () => {
+    nextSlide();
+    stopAutoSlide();
+    startAutoSlide(); // Перезапуск після ручної зміни
+});
 
 slider.addEventListener('mouseenter', stopAutoSlide);
 slider.addEventListener('mouseleave', startAutoSlide);
