@@ -62,42 +62,57 @@ body {
     margin: 20px auto;
     overflow: hidden;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .slides {
     display: flex;
+    width: 300%;
     transition: transform 0.5s ease;
 }
 
 .slide {
-    min-width: 100%;
+    width: 33.333%;
+    background-size: cover;
+    background-position: center;
     padding: 40px;
-    background-color: #f1f8e9;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-.slide.active {
-    opacity: 1;
+.slide:nth-child(1) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1000x300?text=Strategy+Games');
+}
+
+.slide:nth-child(2) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1000x300?text=Family+Games');
+}
+
+.slide:nth-child(3) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1000x300?text=Free+Shipping');
+}
+
+.slide-content {
+    text-align: center;
+    color: #ffffff;
 }
 
 .slide h2 {
     font-size: 1.5rem;
-    color: #2c3e50;
     margin-bottom: 15px;
 }
 
 .slide p {
     font-size: 0.9rem;
-    color: #34495e;
     margin-bottom: 20px;
 }
 
 .slide-button {
     padding: 10px 20px;
     font-size: 0.8rem;
-    background-color: #ffffff;
+    background-color: transparent;
     border: 2px solid #1abc9c;
     color: #1abc9c;
     border-radius: 4px;
@@ -110,6 +125,22 @@ body {
     color: #ffffff;
 }
 
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
 .dots {
     text-align: center;
     margin-top: 10px;
@@ -117,12 +148,13 @@ body {
 
 .dot {
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: #bbb;
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
     border-radius: 50%;
-    margin: 0 5px;
+    margin: 0 6px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .dot.active {
@@ -230,6 +262,8 @@ body {
     .slide h2 { font-size: 1.2rem; }
     .slide p { font-size: 0.8rem; }
     .slide-button { font-size: 0.7rem; }
+    .prev, .next { font-size: 1rem; padding: 8px; }
+    .dot { width: 10px; height: 10px; }
     .hero { padding: 30px 10px; }
     .hero h1 { font-size: 1.4rem; }
     .hero p { font-size: 0.8rem; }
