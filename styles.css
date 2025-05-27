@@ -6,14 +6,14 @@
 }
 
 body {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #ffffff;
+    color: #2c3e50;
     min-height: 100vh;
     padding: 20px;
 }
 
 .navbar {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
@@ -27,7 +27,7 @@ body {
 .brand {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #1e90ff;
+    color: #1abc9c;
 }
 
 .nav-links {
@@ -37,14 +37,14 @@ body {
 }
 
 .nav-links li a {
-    color: #333;
+    color: #2c3e50;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s;
 }
 
 .nav-links li a:hover, .nav-links li a.active {
-    color: #1e90ff;
+    color: #1abc9c;
 }
 
 .hamburger {
@@ -52,13 +52,86 @@ body {
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: #1e90ff;
+    color: #1abc9c;
     cursor: pointer;
+}
+
+.slider {
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    padding: 40px;
+    background-color: #f1f8e9;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.slide p {
+    font-size: 0.9rem;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.slide-button {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    background-color: #ffffff;
+    border: 2px solid #1abc9c;
+    color: #1abc9c;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.slide-button:hover {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #1abc9c;
 }
 
 .hero {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
     max-width: 800px;
     margin: 0 auto;
     opacity: 0;
@@ -72,54 +145,112 @@ body {
 .hero h1 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #1e90ff;
+    color: #2c3e50;
     margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 1rem;
-    color: #555;
+    color: #34495e;
     margin-bottom: 30px;
 }
 
 .cta-button {
     padding: 12px 24px;
     font-size: 0.9rem;
-    background-color: #fff;
-    border: 2px solid #1e90ff;
-    color: #1e90ff;
+    background-color: #ffffff;
+    border: 2px solid #1abc9c;
+    color: #1abc9c;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #1e90ff;
-    color: #fff;
+    background-color: #1abc9c;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.features {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature .icon {
+    font-size: 2rem;
+    color: #1abc9c;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 0.8rem;
+    color: #34495e;
 }
 
 /* Адаптивність */
 @media (max-width: 576px) {
     .navbar { flex-direction: column; align-items: flex-start; }
     .brand { font-size: 1.2rem; }
-    .nav-links { display: none; flex-direction: column; width: 100%; gap: 10px; }
+    .nav-links { display: none; flex-direction: column; width: 100%; gap: 8px; }
     .nav-links.active { display: flex; }
     .hamburger { display: block; }
-    .hero { padding: 40px 10px; }
+    .slider { padding: 10px; }
+    .slide h2 { font-size: 1.2rem; }
+    .slide p { font-size: 0.8rem; }
+    .slide-button { font-size: 0.7rem; }
+    .hero { padding: 30px 10px; }
     .hero h1 { font-size: 1.4rem; }
     .hero p { font-size: 0.8rem; }
     .cta-button { padding: 10px 20px; font-size: 0.8rem; }
+    .features h2 { font-size: 1.3rem; }
+    .feature h3 { font-size: 0.9rem; }
+    .feature p { font-size: 0.7rem; }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
     .brand { font-size: 1.3rem; }
     .nav-links li a { font-size: 0.85rem; }
+    .slide h2 { font-size: 1.3rem; }
     .hero h1 { font-size: 1.6rem; }
     .hero p { font-size: 0.9rem; }
+    .features h2 { font-size: 1.4rem; }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     .nav-links li a { font-size: 0.9rem; }
+    .slide h2 { font-size: 1.4rem; }
     .hero h1 { font-size: 1.7rem; }
 }
 
@@ -129,7 +260,8 @@ body {
 
 @media (min-width: 1200px) {
     .brand { font-size: 1.4rem; }
-    .nav-links li a { font-size: 0.9rem; }
+    .nav-links li a { font-size: 0.95rem; }
     .hero h1 { font-size: 2rem; }
-    .hero p { font-size: 1rem; }
+    .hero p { font-size: 1.1rem; }
+    .features h2 { font-size: 1.6rem; }
 }
