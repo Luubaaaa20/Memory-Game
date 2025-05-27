@@ -3,33 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameBox: Memory Game</title>
+    <title>GameBox: Гра на пам’ять</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="game-box">
-        <section id="instructionsDropdown" class="game-box__dropdown game-box__dropdown--hidden">
-            <div class="game-box__dropdown-content">
-                <span id="closeInstructions" class="game-box__dropdown-close">×</span>
-                <h2 class="game-box__dropdown-title">Інструкція до гри</h2>
-                <div class="game-box__instructions">
-                    <p class="game-box__instructions-text">Ласкаво просимо до GameBox Memory Game! Ваша мета – знайти всі пари однакових карток за відведений час.</p>
-                    <ul class="game-box__instructions-list">
-                        <li class="game-box__instructions-item">Клацніть на картку, щоб перевернути її та побачити емодзі.</li>
-                        <li class="game-box__instructions-item">Знайдіть другу картку з таким же емодзі, щоб скласти пару.</li>
-                        <li class="game-box__instructions-item">Якщо картки не збігаються, вони перевернуться назад.</li>
-                        <li class="game-box__instructions-item">Завершуйте рівень, знаходячи всі пари до закінчення часу.</li>
-                        <li class="game-box__instructions-item">Отримуйте бали за кожну пару (10 × залишок часу) та бонус за завершення рівня (50 × залишок часу).</li>
-                        <li class="game-box__instructions-item">Пройдіть усі 3 рівні, щоб отримати промокод!</li>
-                    </ul>
-                    <p class="game-box__instructions-text">Натисніть "Почати гру", щоб розпочати. Успіхів!</p>
-                </div>
-            </div>
-        </section>
-
         <header class="game-box__header">
-            <h1 class="game-box__title">🎮 GameBox Memory Game</h1>
+            <h1 class="game-box__title">🎮 GameBox Гра на пам’ять</h1>
             <p class="game-box__subtitle">Знайди всі пари карток!</p>
         </header>
 
@@ -42,8 +23,15 @@
         <section id="gameBoard" class="game-box__game-board"></section>
 
         <footer class="game-box__footer">
-            <p class="game-box__footer-text">Розроблено командою GameBox: Турчин Любов</p>
-            <p class="game-box__footer-text"><a href="#" id="instructionsLink" class="game-box__link">Інструкція до гри</a></p>
+            <p class="game-box__footer-text">Розроблено командою GameBox: [Ваше ім’я]</p>
+            <p class="game-box__footer-text">
+                <a href="#" id="instructionsLink" class="game-box__link">Інструкція до гри</a>
+                <div id="instructionsTooltip" class="game-box__tooltip">
+                    <div class="game-box__tooltip-content">
+                        <p class="game-box__tooltip-text">Перевертайте картки, щоб знайти пари емодзі за відведений час. Збіг: +10×час бали. Завершення рівня: +50×час бали. Пройдіть 3 рівні для промокоду!</p>
+                    </div>
+                </div>
+            </p>
             <p class="game-box__footer-text">© 2025 GameBox Team. Усі права захищено</p>
         </footer>
     </div>
