@@ -48,7 +48,7 @@ header h1 {
     cursor: pointer;
 }
 
-#timer, #moves {
+#timer {
     font-size: 0.9rem;
     margin-left: 10px;
     color: #ff4081;
