@@ -22,10 +22,10 @@ body {
 }
 
 .game__header {
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
 }
 
-.game__game {
+.game__title {
     font-size: 1.5rem;
     color: #00ffcc;
     margin-bottom: 10px;
@@ -140,7 +140,7 @@ body {
 
 /* Адаптивність */
 @media (max-width: 576px) {
-    .game__header {
+    .game__title {
         font-size: 1.2rem;
     }
     .game__description {
@@ -170,7 +170,7 @@ body {
     }
 }
 
-@media (min-width: 576px) and (min-width: 767.98px) {
+@media (min-width: 576px) and (max-width: 767.98px) {
     .game__board {
         grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     }
