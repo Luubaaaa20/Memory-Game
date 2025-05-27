@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
-    <link rel="stylesheet" href="gamestyle.css">
+    <title>GameBox: Memory Game</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="home.html" class="home-btn">← На головну</a>
-    <div class="game">
-        <header class="game__header">
-            <h1 class="game__title">🎮 GameBox Memory Game</h1>
-            <p class="game__description">Знайди всі пари карток!</p>
+    <div class="game-box">
+        <header class="game-box__header">
+            <h1 class="game-box__title">🎮 GameBox Memory Game</h1>
+            <p class="game-box__subtitle">Знайди всі пари карток!</p>
         </header>
-        <section class="game__controls">
-            <button id="startBtn" class="game__button">Почати гру</button>
-            <span id="timer" class="game__timer">00:00</span>
-            <span id="score" class="game__score">Бали: 0</span>
+
+        <section class="game-box__controls">
+            <button id="startBtn" class="game-box__button">Почати гру</button>
+            <span id="timer" class="game-box__timer">00:00</span>
+            <span id="score" class="game-box__score">Бали: 0</span>
         </section>
-        <section id="gameBoard" class="game__board"></section>
+
+        <section id="gameBoard" class="game-box__game-board"></section>
+
+        <footer class="game-box__footer">
+            <p class="game-box__footer-text">Розроблено командою GameBox: [Ваше ім’я]</p>
+            <p class="game-box__footer-text"><a href="#" id="instructionsLink" class="game-box__link">Інструкція до гри</a></p>
+            <p class="game-box__footer-text">© 2025 GameBox Team. Усі права захищено</p>
+        </footer>
     </div>
-    <script src="gamescript.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
