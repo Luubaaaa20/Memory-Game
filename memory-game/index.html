@@ -3,31 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameBox: Memory Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="gamestyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎮 GameBox Memory Game</h1>
-            <p>Знайди всі пари карток!</p>
+    <a href="home.html" class="home-btn">← На головну</a>
+    <div class="game">
+        <header class="game__header">
+            <h1 class="game__title">🎮 GameBox Memory Game</h1>
+            <p class="game__description">Знайди всі пари карток!</p>
         </header>
-
-        <section class="controls">
-            <button id="startBtn">Почати гру</button>
-            <span id="timer">00:00</span>
-            <span id="score">Бали: 0</span>
+        <section class="game__controls">
+            <button id="startBtn" class="game__button">Почати гру</button>
+            <span id="timer" class="game__timer">00:00</span>
+            <span id="score" class="game__score">Бали: 0</span>
         </section>
-
-        <section id="gameBoard" class="game-board"></section>
-
-        <footer>
-            <p>Розроблено командою GameBox: Турчин Любов</p>
-            <p><a href="#" id="instructionsLink">Інструкція до гри</a></p>
-            <p>© 2025 GameBox Team. Усі права захищено</p>
-        </footer>
+        <section id="gameBoard" class="game__board"></section>
     </div>
-    <script src="script.js"></script>
+    <script src="gamescript.js"></script>
 </body>
 </html>
