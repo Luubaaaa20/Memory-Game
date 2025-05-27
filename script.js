@@ -2,17 +2,21 @@ const board = document.getElementById('gameBoard');
 const difficultySelect = document.getElementById('difficulty');
 const startBtn = document.getElementById('startBtn');
 const timerDisplay = document.getElementById('timer');
+const movesDisplay = document.getElementById('moves');
 
 let timerInterval, timerSeconds;
 let firstCard = null;
 let lockBoard = false;
+let moves = 0;
 
 const emojis = ['🎲','🧩','🎯','🃏','♟️','🎮','👾','🕹️','📦','🧠','⚔️','🚀'];
 
 startBtn.addEventListener('click', () => {
     clearInterval(timerInterval);
     timerSeconds = 0;
+    moves = 0;
     timerDisplay.textContent = '00:00';
+    movesDisplay.textContent = 'Ходи: 0';
     startTimer();
     const difficulty = difficultySelect.value;
     setupGame(difficulty);
@@ -49,6 +53,7 @@ function setupGame(level) {
         card.innerHTML = '❓';
         board.appendChild(card);
     });
+
     firstCard = null;
     lockBoard = false;
 }
@@ -62,6 +67,8 @@ function onCardClick() {
     if (!firstCard) {
         firstCard = this;
     } else {
+        moves++;
+        movesDisplay.textContent = `Ходи: ${moves}`;
         if (firstCard.dataset.emoji === this.dataset.emoji) {
             firstCard.classList.add('matched');
             this.classList.add('matched');
@@ -86,7 +93,9 @@ function checkWin() {
     if (unmatched.length === 0) {
         clearInterval(timerInterval);
         setTimeout(() => {
-            alert(`Вітаємо! Ви виграли за ${timerDisplay.textContent}`);
+            if (confirm(`Вітаємо! Ви виграли за ${timerDisplay.textContent} і ${moves} ходів. Почати спочатку?`)) {
+                startBtn.click();
+            }
         }, 500);
     }
 }
