@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameBox: Memory Game</title>
+    <title>GameBox – Універсальний магазин ігор</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎮 GameBox Memory Game</h1>
-            <p>Знайди всі пари карток!</p>
-        </header>
+    <nav class="navbar">
+        <div class="brand">🎲 GameBox</div>
+        <button class="hamburger">☰</button>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Головна</a></li>
+            <li><a href="#" >Каталог</a></li>
+            <li><a href="#" >Про нас</a></li>
+            <li><a href="#" >Контакти</a></li>
+            <li><a href="#" id="playGame">Грати в Меморі</a></li>
+        </ul>
+    </nav>
 
-        <section class="controls">
-            <label for="difficulty">Рівень складності:</label>
-            <select id="difficulty">
-                <option value="easy">Легкий (3x2)</option>
-                <option value="medium">Середній (4x3)</option>
-                <option value="hard">Складний (6x4)</option>
-            </select>
-            <button id="startBtn">Почати гру</button>
-            <span id="timer">00:00</span>
+    <main>
+        <section class="hero">
+            <h1>Відкрийте світ настільних ігор з GameBox!</h1>
+            <p>Зануртесь у захоплюючий світ стратегій, веселощів та дружніх змагань. GameBox – ваш універсальний магазин для всіх видів настільних ігор!</p>
+            <button class="cta-button">Дізнайтесь більше</button>
         </section>
+    </main>
 
-        <section id="gameBoard" class="game-board"></section>
-
-        <footer>
-            <p>© 2025 GameBox Team. Усі права захищено.</p>
-        </footer>
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="gameContainer"></div>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
