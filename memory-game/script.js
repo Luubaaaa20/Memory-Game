@@ -2,9 +2,6 @@ const board = document.getElementById('gameBoard');
 const startBtn = document.getElementById('startBtn');
 const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('score');
-const instructionsLink = document.getElementById('instructionsLink');
-const instructionsDropdown = document.getElementById('instructionsDropdown');
-const closeInstructions = document.getElementById('closeInstructions');
 
 let currentLevel = 1;
 let timeLeft;
@@ -41,15 +38,6 @@ startBtn.addEventListener('click', () => {
     resetGame();
     setupGame();
     startTimer();
-});
-
-instructionsLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    instructionsDropdown.classList.toggle('game-box__dropdown--visible');
-});
-
-closeInstructions.addEventListener('click', () => {
-    instructionsDropdown.classList.remove('game-box__dropdown--visible');
 });
 
 function startTimer() {
