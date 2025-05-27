@@ -9,16 +9,24 @@
 <body>
   <main>
     <h1>Memory Game</h1>
+
     <div class="level-select">
-      <button data-level="easy">Легкий</button>
-      <button data-level="medium">Середній</button>
-      <button data-level="hard">Складний</button>
+      <label for="difficulty">Виберіть рівень складності:</label>
+      <select id="difficulty">
+        <option value="easy">Легкий</option>
+        <option value="medium">Середній</option>
+        <option value="hard">Складний</option>
+      </select>
+      <button id="startBtn">Старт</button>
     </div>
+
     <div id="game-info">
-      <p id="timer">Час: 0</p>
+      <p id="timer">00:00</p>
       <p id="status"></p>
     </div>
-    <div id="game-board" class="board"></div>
+
+    <div id="gameBoard" class="board"></div>
+
     <div id="promo" class="hidden">
       <h2>Вітаємо! 🎉</h2>
       <p>Ваш промокод: <strong>GAME2025</strong></p>
