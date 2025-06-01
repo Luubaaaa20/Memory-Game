@@ -1,6 +1,3 @@
-const hamburger = document.querySelector('.navbar__hamburger');
-const navMenu = document.querySelector('.navbar__links');
-const navLinks = document.querySelectorAll('.navbar__link');
 const ctaButton = document.querySelector('.hero__button');
 const slides = document.querySelectorAll('.slider__slide');
 const dots = document.querySelectorAll('.slider__dot');
@@ -10,10 +7,6 @@ const slider = document.querySelector('.slider');
 const slidesContainer = document.querySelector('.slider__slides');
 let currentSlide = 0;
 let autoSlideInterval;
-
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('navbar__links--active');
-});
 
 function showSlide(index) {
     currentSlide = (index + slides.length) % slides.length;
@@ -41,17 +34,6 @@ function stopAutoSlide() {
         autoSlideInterval = null;
     }
 }
-
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        if (!link.href.includes('index.html')) {
-            e.preventDefault();
-            navLinks.forEach(l => l.classList.remove('navbar__link--active'));
-            link.classList.add('navbar__link--active');
-            console.log(`Перехід до: ${link.textContent}`);
-        }
-    });
-});
 
 ctaButton.addEventListener('click', () => {
     alert('Ознайомтесь із каталогом GameBox!');
